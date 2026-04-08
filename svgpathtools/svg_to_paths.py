@@ -300,7 +300,7 @@ def svg2paths(
         elif el.tagName == "line" and convert_lines_to_paths:
             line_data = dom2dict(el)
             d_strings.append(
-                f"M{line_data['x1']} {line_data['y1']} L{line_data['x2']} {line_data['y2']}"
+                f"M{line_data.get('x1', "0")} {line_data.get('y1', "0")} L{line_data.get('x2', "0")} {line_data.get('y2', "0")}"
             )
             attribute_dictionary_list.append(line_data)
         elif el.tagName == "ellipse" and convert_ellipses_to_paths:
